@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Sonuçlar</title>
+</head>
+<body>
+    <a href="{{ url_for('index') }}"><button type="button" class="btn btn-warning" style="margin: 15px;">Anasayfa</button></a>
+    <div class="container">
+        
+        <hr/>
+        <h1>Test Sonucunuz</h1>
+        <p>Aldığınız Puan: {{ score }} / 100</p>
+        <p>En Yüksek Puanınız: {{ best_score }} / 100</p>
+        <hr/>
+
+        <h2>Tüm Puanlar</h2>
+        <ul>
+            {% for s in all_scores %}
+                <li>{{ s[0] }} / 100</li>
+            {% endfor %}
+        </ul>
+        <hr/>
+
+        <form action="{{ url_for('delete_scores') }}" method="post">
+            <button type="submit" class="btn btn-danger" style="width: 160px; margin-left: 15px; margin-top: 15px;">Tüm Puanları Sil</button>
+        </form>
+        <br>
+        <a href="{{ url_for('quiz') }}"><button type="button" class="btn btn-success" style="width: 160px; margin-left: 15px;" >Tekrar dene</button></a>
+        <br><br>
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; text-align: center; background-color: rgb(57, 63, 233); color: aliceblue; font-size:xx-large;">ÖMER DEMİR</div>
+        
+    </div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
